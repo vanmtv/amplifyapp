@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {Authenticator} from 'aws-amplify-react';
+import {Amplify} from 'aws-amplify';
+import '@aws-amplify/ui/dist/style.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component{
+  componentDidMount(){
+    Amplify.configure({
+      mandatorySignIn: true,
+      region: 'us-east-1',
+      userPoolId: 'us-east-1_uNwGAYI5w',
+      identityPoolId: 'us-east-1:514fc840-ddce-4541-928d-0d5d331cf640',
+      userPoolWebClientId: '4erqiae5rb4cl36td0nhm2qpio'
+
+    })
+  }
+
+  render(){
+    return(
+      <div>
+        <Authenticator/>
+      </div>
+
+    )
+  }
 }
-
-export default App;
