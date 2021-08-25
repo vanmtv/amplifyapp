@@ -1,2 +1,2 @@
-# 1st-react-amplify
+# react-amplify
 Quick start Amplify AWS + ReactJs
